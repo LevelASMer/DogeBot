@@ -9,6 +9,7 @@ global OAUTH
 global CHANNEL
 global MESSAGE
 global LIMIT
+global FIRST_VISIT
 
 
 # Open Configure File
@@ -19,6 +20,13 @@ with open('config.yml', 'r') as file:
     CHANNEL = conf['CHANNEL']
     MESSAGE = conf['MESSAGE']
     LIMIT = conf['LIMIT']
+    FIRST_VISIT = [
+        NAME,
+        'nightbot',
+        'twip',
+        'ssakdook',
+        'bbangddeock'
+    ]
     
 
 with Observer(NAME, OAUTH) as observer:
@@ -33,8 +41,9 @@ with Observer(NAME, OAUTH) as observer:
                 if COUNT == LIMIT:
                     COUNT = 0
                     break
-                if event.type == 'TWITCHCHATJOIN' and event.nickname not in [NAME, 'nightbot', 'twip', 'ssakdook', 'bbangddeock']:
+                if event.type == 'TWITCHCHATJOIN' and event.nickname not in FIRST_VISIT:
                     COUNT = COUNT + 1
+                    FIRST_VISIT.append(event.nickname)
                     print(MESSAGE.format(event.nickname))
                     observer.send_message(MESSAGE.format(event.nickname), event.channel)
 
