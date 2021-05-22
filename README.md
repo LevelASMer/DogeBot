@@ -1,4 +1,4 @@
-# RiceBot
+# DogeBot
 A Twitch Bot Likes [ChalDuck](https://chal.unripesoft.com) for Python.
 
 ## What is?

@@ -4,8 +4,8 @@
 # MESSAGE: Your Message
 # LIMIT: Limitation of messages per joining
 
-NAME: "ricebot"
+NAME: "dogebot"
 OAUTH: "oauth:123456789abcdef"
 CHANNEL: "xqcow"
-MESSAGE: "[찰떡] {}님, 환영합니다!"
+MESSAGE: "[개떡] {}님, 환영합니다!"
 LIMIT: 3
