@@ -15,7 +15,7 @@ global LIMIT
 with open('config.yml', 'r') as file:
     conf = yaml.safe_load(file)
     NAME = conf['NAME']
-    OAUTH = os.environ['oauth']
+    OAUTH = conf['OAUTH']
     CHANNEL = conf['CHANNEL']
     MESSAGE = conf['MESSAGE']
     LIMIT = conf['LIMIT']
@@ -35,10 +35,8 @@ with Observer(NAME, OAUTH) as observer:
                     break
                 if event.type == 'TWITCHCHATJOIN' and event.nickname not in [NAME, 'nightbot', 'twip', 'ssakdook', 'bbangdduck']:
                     COUNT = COUNT + 1
-                    print(MESSAGE.format(event.nickname, COUNT))
+                    print(MESSAGE.format(event.nickname))
                     # observer.send_message(MESSAGE.format(event.nickname), event.channel)
-                # if event.type == 'TWITCHCHATMESSAGE' and event.nickname != NAME:
-                #     print('[INFO] {}'.format(event.message))
 
             time.sleep(1)
 
