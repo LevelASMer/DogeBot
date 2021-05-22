@@ -33,10 +33,10 @@ with Observer(NAME, OAUTH) as observer:
                 if COUNT == LIMIT:
                     COUNT = 0
                     break
-                if event.type == 'TWITCHCHATJOIN' and event.nickname != NAME and event.nickname != "nightbot" and event.nickname != "twip" and event.nickname != "ssakdook" and event.nickname != "bbangdduck":
+                if event.type == 'TWITCHCHATJOIN' and event.nickname not in [NAME, 'nightbot', 'twip', 'ssakdook', 'bbangdduck']:
                     COUNT = COUNT + 1
                     print(MESSAGE.format(event.nickname, COUNT))
-                    observer.send_message(MESSAGE.format(event.nickname), event.channel)
+                    # observer.send_message(MESSAGE.format(event.nickname), event.channel)
                 # if event.type == 'TWITCHCHATMESSAGE' and event.nickname != NAME:
                 #     print('[INFO] {}'.format(event.message))
 
