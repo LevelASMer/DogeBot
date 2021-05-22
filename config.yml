@@ -5,7 +5,7 @@
 # LIMIT: Limitation of messages per joining
 
 NAME: "deditor"
-OAUTH: "oauth:123456789abcdefblah"
-CHANNEL: "gpqms010"
+OAUTH: "oauth:youroauthcode"
+CHANNEL: "deditor"
 MESSAGE: "[찰떡] {}님, 환영합니다!"
 LIMIT: 3
