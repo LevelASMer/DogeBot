@@ -38,10 +38,10 @@ with Observer(NAME, OAUTH) as observer:
         try:
             COUNT = 0
             for event in observer.get_events():
-                if COUNT == LIMIT:
-                    COUNT = 0
-                    break
                 if event.type == 'TWITCHCHATJOIN' and event.nickname not in FIRST_VISIT:
+                    if COUNT == LIMIT:
+                        COUNT = 0
+                        break
                     COUNT = COUNT + 1
                     FIRST_VISIT.append(event.nickname)
                     print(MESSAGE.format(event.nickname))
